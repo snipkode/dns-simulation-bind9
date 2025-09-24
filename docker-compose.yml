@@ -1,0 +1,71 @@
+version: "3.8"
+
+services:
+  bind9:
+    image: ubuntu/bind9:9.18-22.04_beta
+    container_name: bind9
+    restart: always
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    networks:
+      dns_net02:
+        ipv4_address: 172.31.0.4   # IP statis untuk DNS server
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./bind9/named.conf:/etc/bind/named.conf
+      - ./bind9/named.conf.options:/etc/bind/named.conf.options
+      - ./bind9/named.conf.local:/etc/bind/named.conf.local
+      - ./bind9/mataai.co.id.zone:/etc/bind/mataai.co.id.zone
+
+  website:
+    image: nginx:alpine
+    container_name: website-01
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html:ro
+    ports:
+      - "80"
+    expose:
+      - "3000"  # expose ke internal docker network
+    networks:
+      dns_net02:
+        ipv4_address: 172.31.0.5
+    dns:
+      - 172.31.0.4 
+
+  npm:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: nginx-proxy-manager
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./npm/data:/data
+      - ./npm/letsencrypt:/etc/letsencrypt
+    networks:
+      dns_net02:
+        ipv4_address: 172.31.0.6
+    dns:
+      - 172.31.0.4 
+  rcm:
+    image: snipkode/rcm:1.7
+    container_name: rcm
+    environment:
+      - TZ=Asia/Jakarta
+    volumes:
+      - ./rcm/resolv.conf:/etc/resolv.conf:rw
+    ports:
+      - 3000:3000
+    networks:
+      dns_net02:
+        ipv4_address: 172.31.0.7
+    dns:
+      - 172.31.0.4 
+
+networks:
+  dns_net02:
+    external: true

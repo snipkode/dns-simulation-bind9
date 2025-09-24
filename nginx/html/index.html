@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>mataai.co.id - Modern Cloud Hosting Indonesia</title>
+    
+    <!-- SEO Tags -->
+    <meta name="description" content="Layanan cloud hosting Indonesia dengan performa tinggi, keamanan maksimal, dan dukungan 24/7">
+    <meta name="keywords" content="cloud hosting, web hosting, domain, dns, indonesia">
+    <meta property="og:title" content="mataai.co.id - Modern Cloud Hosting">
+    <meta property="og:description" content="Layanan cloud hosting Indonesia dengan performa tinggi">
+    <meta property="og:image" content="/img/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJESURBVFhH7Za/T9RQHMbvjmUh0XEFB4wD/gGEGCUxLkYTZHFiYGFgQaOJG5sYJzfC4uLoxqiJk4sD/4CJi5ExBhYSEwcGgsEQx+tt733fr+297/Vat8Yk9ZO89L2+7/M8vV7be6n9V5QGa7X9utXqe4WQz+qed/dXpbI30BkGMNbaOGi3H9Rd91623d4cNBqzf3z/w2/X3c22p4AX0u7v0cTnb4SQ2F9oNj9l2+1t20/gg9CYRoMHQoi1TGsEX0NAxrj+TfUkG+0RtOZtSZrWOzFE3/cfD/T7d7Lh4bDVNF0/IX2gAfxms/ks2x4P4XnP/wohJ7qO47y1fQP6PsZFI8+3bR8RtCM04bujZvNRtr0wMpcwfSVp2up43t4gCF5TyEEu7Sgp5dt+v//JcZwjbGIGxUtRM2QHQvCCuq2UFEHf5kL+wJ6maW9Mj/kKPM97aAqzPL5EQXUsh+mQfkfJdV3qSzmjpphxkRBbgxwhxQAO+fOkjdaZ3EwKmEScUw9ySykGcEhfQO1tGiF3lGSYVAhS0uNQPKy41+ALSu+qHCVJ8aCS4qJ7A8LwpZa2pQ/BZlVJ8TiUIs1tKykRe7quX5oec56L8JtVtXmRpgLgbykJDij1qCUcR7K2KwPsTCtpysZyMZTyeM/zvrqu+4H6+/jzKaXexXH8Q0r5JQzDr1EUHXuet0vtNs0ZGMa+7jHXdd/AW88dGwqt9U4cx3Naa/yvMDccx9kxn+nX4PyLUar2F7nNuHJUVF7PAAAAAElFTkSuQmCC">
+    
+    <!-- Preload Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #00e6d8;
+            --secondary: #b2fefa;
+            --dark: #0f2027;
+            --text: #ffffff;
+        }
+        
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark), #2c5364 80%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        /* Components */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background: rgba(0,0,0,0.7);
+            padding: 1.5rem 0;
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 1rem 0;
+            background: rgba(0,0,0,0.9);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.07);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cta {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: var(--dark);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .cta:hover {
+            background: transparent;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { text-align: center; }
+            .features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <h1>mataai.co.id</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2 class="animate" style="font-size: 3rem; margin-bottom: 1rem;">Modern Cloud Hosting Indonesia</h2>
+                <p class="animate" style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    Performa tinggi, keamanan maksimal, dukungan 24/7
+                </p>
+                <a href="#contact" class="cta animate">Mulai Sekarang</a>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="features">
+                <div class="feature-card animate">
+                    <h3>Cloud Hosting</h3>
+                    <p>Hosting dengan performa tinggi, uptime 99.9%, dan backup otomatis</p>
+                </div>
+                <div class="feature-card animate">
+                    <h3>Domain & DNS</h3>
+                    <p>Kelola domain dan DNS dengan mudah melalui dashboard modern</p>
+                </div>
+                <div class="feature-card animate">
+                    <h3>Keamanan</h3>
+                    <p>SSL gratis, DDoS protection, dan firewall canggih</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="margin-top: auto; padding: 2rem 0; text-align: center; background: rgba(0,0,0,0.5);">
+        <div class="container">
+            <p>&copy; 2025 mataai.co.id &mdash; All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = entry.target.dataset.delay || '0s';
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate').forEach((el, i) => {
+            el.style.animationPlayState = 'paused';
+            el.dataset.delay = `${i * 0.2}s`;
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

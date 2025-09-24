@@ -1,0 +1,15 @@
+$TTL 604800
+@   IN  SOA ns1.mataai.co.id. admin.mataai.co.id. (
+              3         ; Serial (ubah tiap edit)
+              604800    ; Refresh
+              86400     ; Retry
+              2419200   ; Expire
+              604800 )  ; Negative Cache TTL
+
+; Nameserver
+@   IN  NS  ns1.mataai.co.id.
+
+; A records
+ns1 IN  A   172.31.0.4   ; bind9 server
+www IN  A   172.31.0.5   ; website container
+npm IN  A   172.31.0.6   ; nginx proxy manager

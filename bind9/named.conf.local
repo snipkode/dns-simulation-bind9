@@ -1,0 +1,4 @@
+zone "mataai.co.id" {
+    type master;
+    file "/etc/bind/mataai.co.id.zone";
+};
